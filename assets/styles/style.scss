@@ -14,15 +14,19 @@
             @content
         };
     };
-    @if $break-point = mobileTee {
-        @media screen and (max-width: 25.85em) {
+    @if $break-point = myiphone {
+        @media screen and (max-width: 34.5em) {
             @content
-        }
-    }
+        };
+    };
 }
 
 html {
     font-size: 16px;
+
+    @include respond(myiphone){
+        font-size: 12px;
+    }
 
     --background-color: #FAFAFA;
     --card-color: #ffffff;
@@ -42,7 +46,6 @@ html {
 
 
     --radio-regular: #E4E5F1;
-    // --radio-completed: Linear Gradient #57DDFF @ 0% #C058F3 @ 100%
 }
 
 htm[theme="dark"]{
@@ -64,7 +67,6 @@ htm[theme="dark"]{
 
 
     --radio-regular: #393A4C;
-    // --radio-completed: Linear Gradient #57DDFF @ 0% #C058F3 @ 100%
 }
 
 body{
@@ -74,7 +76,6 @@ body{
     &::before{
         position: absolute;
         content: "";
-        background-color: orange;
         background: url(/assets/images/bg-desktop-light.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -84,11 +85,13 @@ body{
         height: 18.75rem;
         z-index: -2;
 
-        @include respond(mobile-Tee){
-            // back
+        @include respond(myiphone){
+            background: url(/assets/images/bg-mobile-light.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 18.41666666666667rem;
         }
     }
-
 }
 
 main{
@@ -106,20 +109,30 @@ header{
     justify-content: space-between;
     padding: 5.0625rem 0 3.1875rem 0;
 
+    @include respond(myiphone){
+        padding-top: 3.75rem;
+        padding-bottom: 3rem;
+    }
+
     h1{
         color: #ffffff;
         text-transform: uppercase;
     }
-
 }
 
 section {
     width: 33.75rem;
+    @include respond(myiphone){
+        width: 27.25rem;
+    }
 }
 
 .input{
     position: relative;
     margin-bottom: 1.5rem;
+    @include respond(myiphone){
+        margin-bottom: 1.5rem;
+    }
     button{
         background-color: transparent;
         width: 1.5rem;
@@ -143,6 +156,17 @@ section {
         width: 100%;
         border-radius: 6px;
 
+        @include respond(myiphone){
+            font-size: 1rem;
+
+            &::placeholder{
+                font-size: 1rem;
+            }
+            &:focus-visible{
+                font-size: 1rem;
+            }
+        }
+
         &::placeholder{
             color: var(--input-ph);
             font-size: 1.125rem;
@@ -151,7 +175,6 @@ section {
         &:focus-visible{
             border: transparent 1px solid;
             outline: transparent 1px solid;
-            
         }
     }
 }
@@ -175,6 +198,12 @@ section {
         cursor: pointer;
         margin-right: 1.5rem;
 
+        @include respond(myiphone){
+            margin-right: 0.916rem;
+            width: 1.667rem;
+            height: 1.667rem;
+        }
+
         &:checked{
             background-image: url(/assets/images/icon-check.svg)  , linear-gradient(144.16deg, #57DDFF 17.27%, #C058F3 83.53%);
             background-repeat: no-repeat;
@@ -190,6 +219,10 @@ section {
         font-size: 1.125rem;
         color: var(--active-task);
         cursor: pointer;
+
+        @include respond(myiphone){
+            font-size: 1rem;
+        }
     }
 
     .todolist-item{
@@ -200,6 +233,20 @@ section {
             align-items: center;
             padding: 1.1875rem  1.5rem 1.375rem 1.5rem;
             position: relative;
+
+            @include respond(myiphone){
+                padding: 1.333333333333333rem 1.666666666666667rem 1.409166666666667rem 1.333333333333333rem;
+
+                span{
+                    position: absolute;
+                    background-size: contain;
+                    background-image: url(/assets/images/icon-cross.svg);
+                    top: 1.666666666666667rem;
+                    right: 1.666666666666667rem;
+                    width: 0.9825rem;
+                    height: 0.9825rem;
+                }
+            }
 
             &:hover{
 
@@ -212,6 +259,13 @@ section {
                     height: 1.125rem;
                     cursor: pointer;
 
+                    @include respond(myiphone){
+                        background-size: contain;
+                        top: 1.666666666666667rem;
+                        right: 1.666666666666667rem;
+                        width: 0.9825rem;
+                        height: 0.9825rem;
+                    }
                 }
             }
         }
@@ -221,18 +275,17 @@ section {
 
 .bottom-wrapper{
     position: relative;
-    background-color: var(--card-color);
-    padding: 1rem 1.5rem;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    box-shadow: 0px 28px 38px -8px #0000001A;
-
-
+    
     .status-bar{
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: 0.8125rem;
+        background-color: var(--card-color);
+        padding: 1rem 1.5rem;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0px 28px 38px -8px #0000001A;
         p,
         button{
             color: var(--completed-task);
@@ -243,6 +296,18 @@ section {
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+
+        @include respond(myiphone){
+            position: static;
+            display: flex;
+            justify-content: center;
+            background-color: var(--card-color);
+            padding: 1rem 1.5rem;
+            transform: translate(0,0);
+            margin-top: 16px;
+            border-radius: 6px;
+            box-shadow: 3px 20px 28px -8px #0000001A;
+        }
 
         button{
             color:var(--btn-inactive);
@@ -275,26 +340,28 @@ section {
         &:hover{
             color: var(--btn-hover--input-active);
         }
-
     }
 }
 
 p:last-child{
     margin-top: 3.0625rem;
-    margin-bottom: 9.1875rem;
     text-align: center;
     font-weight: 400;
     color: var(--btm-left-completed);
 }
 
 .attribution {
-    font-size: 11px; text-align: center;
+    font-size: 0.6875rem;
+    text-align: center;
     position: absolute;
-    bottom: -18%;
+    bottom: -4%;
     left: 50%;
     transform: translateX(-50%);
     color: var(--btn-inactive);
-
+    @include respond(myiphone){
+        font-size: 7px;
+        bottom: -12%;
+    }
     a {
         color: var(--btn-active); 
     }
