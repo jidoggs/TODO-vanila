@@ -4,33 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <script src="assets/scripts/app.js" defer></script>
   
   <title>Frontend Mentor | Todo app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  
 </head>
 <body>
 
-  Todo
+  <main>
+    <header>
+      <h1>
+        Todo
+      </h1>
+      <img class="theme" src="assets/images/icon-moon.svg" alt="theme-icon">
+    </header>
+    <section>
+      <div class="input" >
+        <button id="log-todo"></button>
+        <input class="todo-input" type="text" name="todo-input" id="todo-input" aria-label="todo-input" placeholder="Create a new todo...">
+      </div>
+      <ul class="todolist" id="todolist">
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="firstItem" id="firstItem">
+            <label for="firstItem">Complete online JavaScript course</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="seconditem" id="seconditem" >
+            <label for="seconditem">Jog around the pack 3x</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="thirditem" id="thirditem" >
+            <label for="thirditem">10 minutes meditation</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="fourthitem" id="fourthitem">
+            <label for="fourthitem">Read for 1 hour</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="fifthitem" id="fifthitem">
+            <label for="fifthitem">Pick up groceries</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+        <li class="todolist-item">
+          <div >
+            <input type="checkbox" name="sixthitem">
+            <label for="">Complete Todo App on Frontend Mentor</label>
+            <span class="cancel-btn"></span>
+          </div>
+        </li>
+      </ul>
+      <div class="bottom-wrapper">
+        <div class="status-bar todolist-item">
+          <p><span id="items-left">0</span> items left</p>
+          <button id="clear-completed">Clear Completed</button>
+        </div>
+        <div class="sort-bar" id="sort-bar">
+          <button id="sort-all">All</button>
+          <button id="sort-active">Active</button>
+          <button id="sort-completed">Completed</button>
+        </div>
+      </div>
+      <p class="cta">
+        Drag and drop to reorder list
+      </p>
+    </section>
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Tomiwa</a>.
+    </footer>
+  </main>
 
-  <!-- Add dynamic number --> items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>

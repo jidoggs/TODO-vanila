@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+html {
+  font-size: 16px;
+  --background-color: #FAFAFA;
+  --card-color: #ffffff;
+  --active-task: #484B6A;
+  --completed-task: #D2D3DB;
+  --input-ph: #9394A5;
+  --btm-left-completed: #9394A5;
+  --btn-active: #3A7BFD;
+  --btn-inactive: #9394A5;
+  --btn-hover--input-active: #484B6A;
+  --radio-regular: #E4E5F1;
+}
+
+htm[theme="dark"] {
+  --background-color: #161722;
+  --card-color: #25273C;
+  --active-task: #CACDE8;
+  --completed-task: #4D5066;
+  --input-ph: #777A92;
+  --btm-left-completed: #4D5066;
+  --btn-active: #3A7BFD;
+  --btn-inactive: #777A92;
+  --btn-hover--input-active: #E4E5F1;
+  --radio-regular: #393A4C;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+  background-color: var(--background-color);
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  background-color: orange;
+  background: url(/assets/images/bg-desktop-light.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 18.75rem;
+  z-index: -2;
+}
+
+main {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5.0625rem 0 3.1875rem 0;
+}
+
+header h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+section {
+  width: 33.75rem;
+}
+
+.input {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input button {
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--radio-regular);
+  position: absolute;
+  top: 50%;
+  left: 2.25rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.input .todo-input {
+  padding: 1.5rem 0 1.375rem 4.5rem;
+  font-size: 1.125rem;
+  color: var(--active-task);
+  background-color: var(--card-color);
+  border: transparent 1px solid;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.input .todo-input::-webkit-input-placeholder {
+  color: var(--input-ph);
+  font-size: 1.125rem;
+  text-transform: none;
+}
+
+.input .todo-input:-ms-input-placeholder {
+  color: var(--input-ph);
+  font-size: 1.125rem;
+  text-transform: none;
+}
+
+.input .todo-input::-ms-input-placeholder {
+  color: var(--input-ph);
+  font-size: 1.125rem;
+  text-transform: none;
+}
+
+.input .todo-input::placeholder {
+  color: var(--input-ph);
+  font-size: 1.125rem;
+  text-transform: none;
+}
+
+.input .todo-input:focus-visible {
+  border: transparent 1px solid;
+  outline: transparent 1px solid;
+}
+
+.todolist {
+  background-color: var(--card-color);
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  -webkit-box-shadow: 0px 18px 50px 2px #0000001A;
+          box-shadow: 0px 18px 50px 2px #0000001A;
+}
+
+.todolist input {
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--radio-regular);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+.todolist input:checked {
+  background-image: url(/assets/images/icon-check.svg), linear-gradient(144.16deg, #57DDFF 17.27%, #C058F3 83.53%);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.todolist input:checked + label {
+  text-decoration: line-through;
+  color: var(--completed-task);
+}
+
+.todolist label {
+  font-size: 1.125rem;
+  color: var(--active-task);
+  cursor: pointer;
+}
+
+.todolist .todolist-item {
+  border-bottom: 1px solid var(--radio-regular);
+}
+
+.todolist .todolist-item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.1875rem  1.5rem 1.375rem 1.5rem;
+  position: relative;
+}
+
+.todolist .todolist-item > div:hover span {
+  position: absolute;
+  background-image: url(/assets/images/icon-cross.svg);
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+}
+
+.bottom-wrapper {
+  position: relative;
+  background-color: var(--card-color);
+  padding: 1rem 1.5rem;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -webkit-box-shadow: 0px 28px 38px -8px #0000001A;
+          box-shadow: 0px 28px 38px -8px #0000001A;
+}
+
+.bottom-wrapper .status-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 0.8125rem;
+}
+
+.bottom-wrapper .status-bar p,
+.bottom-wrapper .status-bar button {
+  color: var(--completed-task);
+}
+
+.bottom-wrapper .sort-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.bottom-wrapper .sort-bar button {
+  color: var(--btn-inactive);
+  font-weight: 700;
+}
+
+.bottom-wrapper .sort-bar button:active {
+  color: var(--btn-active);
+}
+
+.bottom-wrapper .sort-bar button:hover {
+  color: var(--btn-hover--input-active);
+}
+
+.bottom-wrapper .sort-bar button:first-child {
+  margin-right: 1.1875rem;
+}
+
+.bottom-wrapper .sort-bar button:nth-child(2) {
+  margin-right: 0.9375rem;
+}
+
+.bottom-wrapper button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+
+.bottom-wrapper button:active, .bottom-wrapper button:hover {
+  color: var(--btn-hover--input-active);
+}
+
+p:last-child {
+  margin-top: 3.0625rem;
+  margin-bottom: 9.1875rem;
+  text-align: center;
+  font-weight: 400;
+  color: var(--btm-left-completed);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: var(--btn-inactive);
+}
+
+.attribution a {
+  color: var(--btn-active);
+}
+
+.blue {
+  color: var(--btn-active);
+}
+/*# sourceMappingURL=style.css.map */
