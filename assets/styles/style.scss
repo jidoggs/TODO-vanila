@@ -46,6 +46,10 @@ html {
 
 
     --radio-regular: #E4E5F1;
+
+    --theme-icon: url(/assets/images/icon-moon.svg);
+    --hero-big: url(/assets/images/bg-desktop-light.jpg);
+    --hero-small: url(/assets/images/bg-mobile-light.jpg);
 }
 
 htm[theme="dark"]{
@@ -67,6 +71,10 @@ htm[theme="dark"]{
 
 
     --radio-regular: #393A4C;
+
+    --theme-icon: url(/assets/images/icon-sun.svg);
+    --hero-big: url(/assets/images/bg-desktop-dark.jpg);
+    --hero-small: url(/assets/images/bg-mobile-dark.jpg);
 }
 
 body{
@@ -76,7 +84,7 @@ body{
     &::before{
         position: absolute;
         content: "";
-        background: url(/assets/images/bg-desktop-light.jpg);
+        background: var(--hero-big);
         background-size: cover;
         background-repeat: no-repeat;
         left: 0;
@@ -86,7 +94,7 @@ body{
         z-index: -2;
 
         @include respond(myiphone){
-            background: url(/assets/images/bg-mobile-light.jpg);
+            background: var(--hero-small);
             background-size: contain;
             background-repeat: no-repeat;
             height: 18.41666666666667rem;
@@ -117,6 +125,14 @@ header{
     h1{
         color: #ffffff;
         text-transform: uppercase;
+    }
+    .theme{
+        // background-color: red;
+        width: 20px;
+        height: 20px;
+        background-image: var(--theme-icon);
+        background-size: contain;
+        cursor: pointer;
     }
 }
 
@@ -302,7 +318,7 @@ section {
             display: flex;
             justify-content: center;
             background-color: var(--card-color);
-            padding: 1rem 1.5rem;
+            padding: 1.5rem 1.25rem;
             transform: translate(0,0);
             margin-top: 16px;
             border-radius: 6px;
@@ -312,6 +328,9 @@ section {
         button{
             color:var(--btn-inactive);
             font-weight: 700;
+            @include respond(myiphone){
+                font-size: 16px;
+            }
 
             &:active{
                 color: var(--btn-active);
@@ -322,9 +341,15 @@ section {
             
             &:first-child{
                 margin-right: 1.1875rem;
+                @include respond(myiphone){
+                    margin-right: 1.5rem;
+                }
             }
             &:nth-child(2){
                 margin-right: 0.9375rem;
+                @include respond(myiphone){
+                    margin-right: 1.5rem;
+                }
             }
         }
     }
