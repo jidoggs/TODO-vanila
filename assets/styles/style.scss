@@ -28,31 +28,6 @@ html {
         font-size: 12px;
     }
 
-    --background-color: #FAFAFA;
-    --card-color: #ffffff;
-
-    // fonts
-    --active-task: #484B6A;
-    --completed-task: #D2D3DB;
-
-    --input-ph: #9394A5;
-    
-    --btm-left-completed: #9394A5;
-
-    // buttons
-    --btn-active: #3A7BFD;
-    --btn-inactive: #9394A5;
-    --btn-hover--input-active: #484B6A;
-
-
-    --radio-regular: #E4E5F1;
-
-    --theme-icon: url(/assets/images/icon-moon.svg);
-    --hero-big: url(/assets/images/bg-desktop-light.jpg);
-    --hero-small: url(/assets/images/bg-mobile-light.jpg);
-}
-
-htm[theme="dark"]{
     --background-color: #161722;
     --card-color: #25273C;
 
@@ -77,10 +52,36 @@ htm[theme="dark"]{
     --hero-small: url(/assets/images/bg-mobile-dark.jpg);
 }
 
+html[data-theme = "light"] {
+    --background-color: #FAFAFA;
+    --card-color: #ffffff;
+
+    // fonts
+    --active-task: #484B6A;
+    --completed-task: #D2D3DB;
+
+    --input-ph: #9394A5;
+    
+    --btm-left-completed: #9394A5;
+
+    // buttons
+    --btn-active: #3A7BFD;
+    --btn-inactive: #9394A5;
+    --btn-hover--input-active: #484B6A;
+
+
+    --radio-regular: #E4E5F1;
+
+    --theme-icon: url(/assets/images/icon-moon.svg);
+    --hero-big: url(/assets/images/bg-desktop-light.jpg);
+    --hero-small: url(/assets/images/bg-mobile-light.jpg);
+}
+
 body{
     font-family: 'Josefin Sans', sans-serif;
     position: relative;
     background-color: var(--background-color);
+    transition: background .5s;
     &::before{
         position: absolute;
         content: "";
@@ -92,6 +93,7 @@ body{
         width: 100%;
         height: 18.75rem;
         z-index: -2;
+        transition: background cubic-bezier(.11,.5,.55,.96) .3s ;
 
         @include respond(myiphone){
             background: var(--hero-small);
@@ -126,13 +128,30 @@ header{
         color: #ffffff;
         text-transform: uppercase;
     }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+  
+        & > input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+    }
     .theme{
-        // background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 20px;
         height: 20px;
         background-image: var(--theme-icon);
         background-size: contain;
         cursor: pointer;
+        transition: background 1s;
     }
 }
 
@@ -171,6 +190,7 @@ section {
         font-family: 'Josefin Sans', sans-serif;
         width: 100%;
         border-radius: 6px;
+        transition: background cubic-bezier(0.68, -0.55, 0.27, 01.55) 450ms;
 
         @include respond(myiphone){
             font-size: 1rem;
@@ -200,6 +220,7 @@ section {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     box-shadow: 0px 18px 50px 2px #0000001A;
+    transition: background cubic-bezier(0.68, -0.55, 0.27, 01.55) 500ms;
 
     
 
@@ -229,12 +250,15 @@ section {
         &:checked + label {
             text-decoration: line-through;
             color: var(--completed-task);
+            transition: color cubic-bezier(.17,.67,.83,.67) 450ms;
+            
         }
     }
     label{
         font-size: 1.125rem;
         color: var(--active-task);
         cursor: pointer;
+        transition: text-decoration cubic-bezier(.92,.53,.69,.36) 1s;
 
         @include respond(myiphone){
             font-size: 1rem;
@@ -298,6 +322,7 @@ section {
         justify-content: space-between;
         font-size: 0.8125rem;
         background-color: var(--card-color);
+        transition: background cubic-bezier(0.68, -0.55, 0.27, 01.55) 500ms;
         padding: 1rem 1.5rem;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
@@ -305,6 +330,7 @@ section {
         p,
         button{
             color: var(--completed-task);
+            transition: color cubic-bezier(0.68, -0.55, 0.27, 01.55) 450ms;
         }
     }
     .sort-bar{
@@ -318,6 +344,7 @@ section {
             display: flex;
             justify-content: center;
             background-color: var(--card-color);
+            transition: background cubic-bezier(0.68, -0.55, 0.27, 01.55) 450ms;
             padding: 1.5rem 1.25rem;
             transform: translate(0,0);
             margin-top: 16px;
@@ -373,6 +400,7 @@ p:last-child{
     text-align: center;
     font-weight: 400;
     color: var(--btm-left-completed);
+    transition: color cubic-bezier(0.68, -0.55, 0.27, 01.55) 450ms;
 }
 
 .attribution {

@@ -9,34 +9,6 @@
 
 html {
   font-size: 16px;
-  --background-color: #FAFAFA;
-  --card-color: #ffffff;
-  --active-task: #484B6A;
-  --completed-task: #D2D3DB;
-  --input-ph: #9394A5;
-  --btm-left-completed: #9394A5;
-  --btn-active: #3A7BFD;
-  --btn-inactive: #9394A5;
-  --btn-hover--input-active: #484B6A;
-  --radio-regular: #E4E5F1;
-  --theme-icon: url(/assets/images/icon-moon.svg);
-  --hero-big: url(/assets/images/bg-desktop-light.jpg);
-  --hero-small: url(/assets/images/bg-mobile-light.jpg);
-}
-
-@media screen and (max-width: 23.5em) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 34.5em) {
-  html {
-    font-size: 12px;
-  }
-}
-
-htm[theme="dark"] {
   --background-color: #161722;
   --card-color: #25273C;
   --active-task: #CACDE8;
@@ -52,10 +24,40 @@ htm[theme="dark"] {
   --hero-small: url(/assets/images/bg-mobile-dark.jpg);
 }
 
+@media screen and (max-width: 23.5em) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 34.5em) {
+  html {
+    font-size: 12px;
+  }
+}
+
+html[data-theme="light"] {
+  --background-color: #FAFAFA;
+  --card-color: #ffffff;
+  --active-task: #484B6A;
+  --completed-task: #D2D3DB;
+  --input-ph: #9394A5;
+  --btm-left-completed: #9394A5;
+  --btn-active: #3A7BFD;
+  --btn-inactive: #9394A5;
+  --btn-hover--input-active: #484B6A;
+  --radio-regular: #E4E5F1;
+  --theme-icon: url(/assets/images/icon-moon.svg);
+  --hero-big: url(/assets/images/bg-desktop-light.jpg);
+  --hero-small: url(/assets/images/bg-mobile-light.jpg);
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
   position: relative;
   background-color: var(--background-color);
+  -webkit-transition: background .5s;
+  transition: background .5s;
 }
 
 body::before {
@@ -69,6 +71,8 @@ body::before {
   width: 100%;
   height: 18.75rem;
   z-index: -2;
+  -webkit-transition: background cubic-bezier(0.11, 0.5, 0.55, 0.96) 0.3s;
+  transition: background cubic-bezier(0.11, 0.5, 0.55, 0.96) 0.3s;
 }
 
 @media screen and (max-width: 23.5em) {
@@ -133,12 +137,32 @@ header h1 {
   text-transform: uppercase;
 }
 
+header .switch {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+header .switch > input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 header .theme {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 20px;
   height: 20px;
   background-image: var(--theme-icon);
   background-size: contain;
   cursor: pointer;
+  -webkit-transition: background 1s;
+  transition: background 1s;
 }
 
 section {
@@ -198,6 +222,8 @@ section {
   font-family: 'Josefin Sans', sans-serif;
   width: 100%;
   border-radius: 6px;
+  -webkit-transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
+  transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
 }
 
 @media screen and (max-width: 23.5em) {
@@ -277,6 +303,8 @@ section {
   border-top-left-radius: 6px;
   -webkit-box-shadow: 0px 18px 50px 2px #0000001A;
           box-shadow: 0px 18px 50px 2px #0000001A;
+  -webkit-transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 500ms;
+  transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 500ms;
 }
 
 .todolist input {
@@ -318,12 +346,18 @@ section {
 .todolist input:checked + label {
   text-decoration: line-through;
   color: var(--completed-task);
+  -webkit-transition: color cubic-bezier(0.17, 0.67, 0.83, 0.67) 450ms;
+  transition: color cubic-bezier(0.17, 0.67, 0.83, 0.67) 450ms;
 }
 
 .todolist label {
   font-size: 1.125rem;
   color: var(--active-task);
   cursor: pointer;
+  -webkit-transition: -webkit-text-decoration cubic-bezier(0.92, 0.53, 0.69, 0.36) 1s;
+  transition: -webkit-text-decoration cubic-bezier(0.92, 0.53, 0.69, 0.36) 1s;
+  transition: text-decoration cubic-bezier(0.92, 0.53, 0.69, 0.36) 1s;
+  transition: text-decoration cubic-bezier(0.92, 0.53, 0.69, 0.36) 1s, -webkit-text-decoration cubic-bezier(0.92, 0.53, 0.69, 0.36) 1s;
 }
 
 @media screen and (max-width: 23.5em) {
@@ -429,6 +463,8 @@ section {
           justify-content: space-between;
   font-size: 0.8125rem;
   background-color: var(--card-color);
+  -webkit-transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 500ms;
+  transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 500ms;
   padding: 1rem 1.5rem;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -439,6 +475,8 @@ section {
 .bottom-wrapper .status-bar p,
 .bottom-wrapper .status-bar button {
   color: var(--completed-task);
+  -webkit-transition: color cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
+  transition: color cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
 }
 
 .bottom-wrapper .sort-bar {
@@ -459,6 +497,8 @@ section {
         -ms-flex-pack: center;
             justify-content: center;
     background-color: var(--card-color);
+    -webkit-transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
+    transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
     padding: 1.5rem 1.25rem;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
@@ -479,6 +519,8 @@ section {
         -ms-flex-pack: center;
             justify-content: center;
     background-color: var(--card-color);
+    -webkit-transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
+    transition: background cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
     padding: 1.5rem 1.25rem;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
@@ -563,6 +605,8 @@ p:last-child {
   text-align: center;
   font-weight: 400;
   color: var(--btm-left-completed);
+  -webkit-transition: color cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
+  transition: color cubic-bezier(0.68, -0.55, 0.27, 1.55) 450ms;
 }
 
 .attribution {

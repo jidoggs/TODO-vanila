@@ -9,26 +9,25 @@
   <script src="assets/scripts/app.js" defer></script>
   
   <title>Frontend Mentor | Todo app</title>
-
-  
 </head>
 <body>
-
   <main>
     <header>
       <h1>
         Todo
       </h1>
-      <span class="theme"></span>
-      <!-- <img class="theme" src="assets/images/icon-moon.svg" alt="theme-icon"> -->
+      <label class="switch">
+        <input type="checkbox" id="theme">
+        <span class="theme" ></span>
+      </label>
     </header>
     <section>
-      <div class="input" >
-        <button id="log-todo"></button>
-        <input class="todo-input" type="text" name="todo-input" id="todo-input" aria-label="todo-input" placeholder="Create a new todo...">
-      </div>
+      <form class="input">
+        <button id="log-todo" type="submit"></button>
+        <input class="todo-input" type="text" name="todo-input" id="todo-input" placeholder="Create a new todo...">
+      </form>
       <ul class="todolist" id="todolist">
-        <li class="todolist-item">
+        <!-- <li class="todolist-item">
           <div >
             <input type="checkbox" name="firstItem" id="firstItem">
             <label for="firstItem">Complete online JavaScript course</label>
@@ -65,11 +64,11 @@
         </li>
         <li class="todolist-item">
           <div >
-            <input type="checkbox" name="sixthitem">
+            <input type="checkbox" name="sixthitem" id="sixthitem">
             <label for="">Complete Todo App on Frontend Mentor</label>
             <span class="cancel-btn"></span>
           </div>
-        </li>
+        </li> -->
       </ul>
       <div class="bottom-wrapper">
         <div class="status-bar todolist-item">
@@ -91,6 +90,5 @@
       Coded by <a href="#">Tomiwa</a>.
     </footer>
   </main>
-
 </body>
 </html>
