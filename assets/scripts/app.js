@@ -12,6 +12,34 @@ const completedListBtn = document.getElementById("sort-completed");
 
 const todoListArray = [];
 
+window.onload = () => {
+    allListBtn.checked = true
+}
+
+const renderActiveTask = () => {
+    todoListArray.filter(item => item.tdStatus === true).forEach(item =>{
+        document.getElementById(item.id).closest("li").style.display="none"
+    });
+    todoListArray.filter(item => item.tdStatus === false).forEach(item =>{
+        document.getElementById(item.id).closest("li").style.display="block"
+    });
+
+}
+
+const renderCompletedTask = () => {
+    todoListArray.filter(item => item.tdStatus === false).forEach(item =>{
+        document.getElementById(item.id).closest("li").style.display="none"
+    });
+    todoListArray.filter(item => item.tdStatus === true).forEach(item =>{
+        document.getElementById(item.id).closest("li").style.display="block"
+    });
+}
+const renderAllTask = () => {
+    todoListArray.forEach(item =>{
+        document.getElementById(item.id).closest("li").style.display="block"
+    })
+}
+
 const removeCompletedItems = () => {
     
     todoListParent.querySelectorAll('input[type="checkbox"]:checked').forEach(item => {
@@ -105,10 +133,11 @@ const switchHandler = () => {
 }
 
 
-clearCompTodoBtn.addEventListener("click", removeCompletedTodoHandler)
-// clearCompTodoBtn.removeEventListener("click", removeCompletedTodoHandler)
+completedListBtn.addEventListener("click", renderCompletedTask);
+activeListBtn.addEventListener("click", renderActiveTask);
+allListBtn.addEventListener("click", renderAllTask);
+clearCompTodoBtn.addEventListener("click", removeCompletedTodoHandler);
 logTodoBtn.addEventListener("click", inputLogHandler);
-// logTodoBtn.removeEventListener("click", logInputHandler);
 themeSwitcher.addEventListener("click", switchHandler);
 
 

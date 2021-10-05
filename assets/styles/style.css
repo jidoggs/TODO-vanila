@@ -600,6 +600,31 @@ section {
   color: var(--btn-hover--input-active);
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--btn-inactive);
+}
+
+input[type="radio"]:checked + label {
+  color: var(--btn-active);
+}
+
+input[type="radio"] + label:hover {
+  color: var(--btn-hover--input-active);
+}
+
+#sort-active + label {
+  margin-left: 1.1875rem;
+  margin-right: 1rem;
+}
+
 p:last-child {
   margin-top: 3.0625rem;
   text-align: center;
@@ -639,6 +664,6 @@ p:last-child {
 }
 
 .blue {
-  color: var(--btn-active);
+  color: var(--btn-hover--input-active);
 }
 /*# sourceMappingURL=style.css.map */
