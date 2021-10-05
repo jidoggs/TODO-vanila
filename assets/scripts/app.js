@@ -16,6 +16,10 @@ window.onload = () => {
     allListBtn.checked = true
 }
 
+new Sortable(todoListParent,{
+    animation: 350,
+})
+
 const renderActiveTask = () => {
     todoListArray.filter(item => item.tdStatus === true).forEach(item =>{
         document.getElementById(item.id).closest("li").style.display="none"
@@ -132,12 +136,9 @@ const switchHandler = () => {
     }
 }
 
-
 completedListBtn.addEventListener("click", renderCompletedTask);
 activeListBtn.addEventListener("click", renderActiveTask);
 allListBtn.addEventListener("click", renderAllTask);
 clearCompTodoBtn.addEventListener("click", removeCompletedTodoHandler);
 logTodoBtn.addEventListener("click", inputLogHandler);
 themeSwitcher.addEventListener("click", switchHandler);
-
-

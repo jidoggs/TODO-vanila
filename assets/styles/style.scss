@@ -7,7 +7,6 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-
 @mixin respond ($break-point) {
     @if $break-point = mobile {
         @media screen and (max-width: 23.5em) {
@@ -222,8 +221,6 @@ section {
     box-shadow: 0px 18px 50px 2px #0000001A;
     transition: background cubic-bezier(0.68, -0.55, 0.27, 01.55) 500ms;
 
-    
-
     input {
         background-color: transparent;
         width: 1.5rem;
@@ -350,34 +347,6 @@ section {
             margin-top: 16px;
             border-radius: 6px;
             box-shadow: 3px 20px 28px -8px #0000001A;
-        }
-
-        button{
-            color:var(--btn-inactive);
-            font-weight: 700;
-            @include respond(myiphone){
-                font-size: 16px;
-            }
-
-            &:active{
-                color: var(--btn-active);
-            }
-            &:hover{
-                color: var(--btn-hover--input-active);
-            }
-            
-            &:first-child{
-                margin-right: 1.1875rem;
-                @include respond(myiphone){
-                    margin-right: 1.5rem;
-                }
-            }
-            &:nth-child(2){
-                margin-right: 0.9375rem;
-                @include respond(myiphone){
-                    margin-right: 1.5rem;
-                }
-            }
         }
     }
     
