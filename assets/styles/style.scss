@@ -154,7 +154,7 @@ header{
     }
 }
 
-section {
+form {
     width: 33.75rem;
     @include respond(myiphone){
         width: 27.25rem;

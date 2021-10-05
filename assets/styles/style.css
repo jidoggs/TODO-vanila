@@ -165,18 +165,18 @@ header .theme {
   transition: background 1s;
 }
 
-section {
+form {
   width: 33.75rem;
 }
 
 @media screen and (max-width: 23.5em) {
-  section {
+  form {
     width: 27.25rem;
   }
 }
 
 @media screen and (max-width: 34.5em) {
-  section {
+  form {
     width: 27.25rem;
   }
 }

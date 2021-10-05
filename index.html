@@ -16,19 +16,19 @@
       <h1>
         Todo
       </h1>
-      <label class="switch">
+      <label class="switch" for="theme">
         <input type="checkbox" id="theme">
         <span class="theme" role="img"></span>
       </label>
     </header>
-    <section>
-      <form class="input" id="inputForm">
-        <button id="log-todo" type="submit"></button>
+    <form>
+      <div class="input" id="inputForm" role="group">
+        <button id="log-todo" type="submit">log-todo</button>
         <input class="todo-input" type="text" name="todo-input" id="todo-input" placeholder="Create a new todo..." autocomplete="off">
-      </form>
+      </div>
       <ul class="todolist" id="todolist">
       </ul>
-      <div class="bottom-wrapper" role="toolbar">
+      <div class="bottom-wrapper" >
         <div class="status-bar todolist-item" role="contentinfo">
           <p><span id="items-left">0</span> items left</p>
           <button id="clear-completed">Clear Completed</button>
@@ -45,7 +45,7 @@
       <p class="cta">
         Drag and drop to reorder list
       </p>
-    </section>
+    </form>
     <footer class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="#">Tomiwa</a>.
