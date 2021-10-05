@@ -74,6 +74,7 @@ I would still love to work more on the drag event listener. I used the help of a
 
 - [Sortablejs](https://cdnjs.com/libraries/Sortable) - This helped me for the drag logic.I will try and fix something simlar up in future projects
 - [MDN Docs](https://developer.mozilla.org) - I cannot state the importance of this
+- [Aria24](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24.html) - Helps tag div elements with semantic embodiment with the use of "role"
 
 ## Author
 
